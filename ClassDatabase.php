@@ -1,4 +1,10 @@
 <?php
+/**
+ * the idea of this class is provide a interface for a mysql database.
+ * @author António Lira Fernandes
+ * @version 1.0
+ * @updated 05-03t-2019 21:50:00
+ */
 
 class Database
 {
