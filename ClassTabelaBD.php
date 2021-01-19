@@ -4,17 +4,21 @@
 
 //ini_set("error_reporting", E_ALL);
 //require($_SERVER['DOCUMENT_ROOT'] . "/config.php"); 
+//require_once($_SERVER['DOCUMENT_ROOT'] . '/classes/ClassAutentica.php');
 
 /**
- * Faz a gestão de uma tabela SQL
+ * The idea for this object is to provide a simple way to manage a databes table. With some configurations we can list a tables, add a new record, change and update a record, delete 
+ * a record and insert several records using a csv file.
  * @author António Lira Fernandes
- * @version 4.5
- * @updated 05-out-2018 21:50:00
+ * @version 4.6
+ * @updated 05-03t-2019 21:50:00
  */
 
 //Problemas conhecidos
 // - quando no formulário de edição enviamos um valor vazio esse campo não é apagado. Provavelmente a pesquisa é feita excluindo os vazios
 // - o formato da tabela não é configuravel precisa de ser melhorado o css usado
+// - devolver o erro
+// - valores data hora
 
 class ClassTabelaBD{
 	//REQUER
@@ -373,9 +377,9 @@ class ClassTabelaBD{
     }
     
     ?>
- 		<!--link href="/links/metisMenu/metisMenu.min.css" rel="stylesheet">
+ 		<!--link href="/links/metisMenu/metisMenu.min.css" rel="stylesheet"-->
 
-
+     <link href="/links/others/css/classTabelaBDFinal.css" rel="stylesheet">
 
 
     <!--link href="/links/others/css/sb-admin-2.css" rel="stylesheet">
@@ -386,7 +390,7 @@ class ClassTabelaBD{
 		<script type="text/javascript" language="javascript" src="/links/others/js/demo.js"></script>
 		<script type="text/javascript" language="javascript" class="init">
 					$(document).ready(function() {
-						$('#example').DataTable();
+						$('#tabela').DataTable();
 					} );
 	//echo "aqui";  
 		</script>
@@ -397,10 +401,10 @@ class ClassTabelaBD{
 
 			<div class="container">
 				<section>
-					<h1><?php echo $this->textos['titulo']?></h1>
+					<h1 id="tbTitle"><?php echo $this->textos['titulo']?></h1>
 					<div class="demo-html"></div>
-					<table id="example" class="table table-striped table-bordered" cellspacing="50" width="100%">
-						<thead>
+					<table id="tabela" class="table table-striped table-bordered" cellspacing="50" width="100%">
+						<thead id="tbTitleTable">
 							<tr>
 								<?php
 								$i=0;
@@ -1546,5 +1550,8 @@ class ClassTabelaBD{
 
 //$tab=new ClassTabelaBD();
 //$tab->lista();
+
+
+
 
 ?>
